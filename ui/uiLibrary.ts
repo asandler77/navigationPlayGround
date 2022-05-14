@@ -1,4 +1,7 @@
 import ColorToken from './colorsToken.json';
+import IosFonts from '../assets/iosFonts'
+// import * as androidFonts from '../assets/AndroidFonts'
+
 export const colorToken = ColorToken;
 
 // Imporant!!!
@@ -25,8 +28,8 @@ export enum Spacing {
 
 export enum FontsFamily {
   SANS_BOLD = 'ATTAleckSans-Bold',
-  SANS_MEDIUM = 'ATTAleckSans-Medium',
-  SANS_REGULAR = 'ATTAleckSans-Regular',
+  SANS_MEDIUM = 'American Typewriter',
+  SANS_REGULAR = 'American Typewriter',
 }
 
 export enum FontSize {

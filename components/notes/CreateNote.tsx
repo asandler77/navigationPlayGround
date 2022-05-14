@@ -7,7 +7,6 @@ import {
   View,
 } from 'react-native';
 import MyCalendar from './MyCalendar';
-import MyButton from './MyButton';
 
 export default ({navigation}: any) => {
   const [showCalendar, setShowCalendar] = useState(false);
