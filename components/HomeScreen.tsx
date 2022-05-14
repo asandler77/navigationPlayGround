@@ -9,13 +9,19 @@ function HomeScreen({navigation, route}) {
       setCurrentTime(route.params?.timeStamp);
     }
   }, route.params?.timeStamp);
-  const onPress = () => {
+  const onPressGoToNotes = () => {
     navigation.navigate('NoteApplication', {name: 'Alexey'});
   };
+
+    const onPressGoToProfileSettings = () => {
+        navigation.navigate('ProfileSettings');
+    };
+
   return (
     <View style={[{flex: 1, alignItems: 'center', justifyContent: 'center'}]}>
       <Text>HomeScreen</Text>
-      <Button title={'Go to notes'} onPress={onPress} />
+      <Button title={'Go to notes'} onPress={onPressGoToNotes} />
+      <Button title={'Go to profile settings'} onPress={onPressGoToProfileSettings} />
       <Text>{currentTime}</Text>
     </View>
   );
