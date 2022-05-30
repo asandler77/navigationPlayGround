@@ -1,3 +1,3 @@
-export const getCounter = () => {
+export const getCurrentTimeStamp = () => {
   return Date.now().valueOf();
 };

@@ -58,7 +58,6 @@ const MyCalendar = ({
   });
 
   const onDayPress = (d: DayProps) => {
-    console.log('date click...', d);
     onSelectDate(d.dateString);
     setDay(d);
     modalClose();

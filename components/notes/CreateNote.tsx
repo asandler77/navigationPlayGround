@@ -21,7 +21,6 @@ export default ({navigation}: any) => {
       params: {data: {day: date, noteText: input}},
       merge: true,
     });
-    navigation.navigate('Notes');
   };
 
   const onChangeText = (text: string) => setInput(text);

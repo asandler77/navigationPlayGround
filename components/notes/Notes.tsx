@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import Carousel from './Carousel';
 import {DataType} from './types';
-import {getCounter} from './helpers';
+import {getCurrentTimeStamp} from './helpers';
 import {
   getAllKeys,
   getMultiple,
@@ -25,11 +25,12 @@ export default ({navigation, route}: any) => {
 
   useEffect(() => {
     getDataFromAsync();
-    setCounter(getCounter);
+    setCounter(getCurrentTimeStamp);
     return () => {};
   }, []);
 
   useEffect(() => {
+    console.log('useeffect')
     createData(route.params?.data);
     getDataFromAsync();
   }, [route.params?.data]);
@@ -37,12 +38,14 @@ export default ({navigation, route}: any) => {
   const storeDataOnAsync = (value: any) => {
     try {
       const jsonValue = JSON.stringify(value);
+      console.log('storeDataOnAsync..', value)
       storeData(counter, jsonValue);
-      setCounter(counter + 1);
+      setCounter(getCurrentTimeStamp);
     } catch (e) {
       console.log('error', e);
     }
   };
+
   const saveData = (values: [string, string | null][]) => {
     let dataArray: DataType[] = [];
     values.forEach(value => {
@@ -73,6 +76,7 @@ export default ({navigation, route}: any) => {
   };
 
   const createData = (note: any) => {
+    console.log('createData on async')
     if (!note) return;
     let dataObject: DataType = {};
 
