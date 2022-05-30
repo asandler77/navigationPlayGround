@@ -8,7 +8,7 @@ import {
   getMultiple,
   removeValue,
   storeData,
-} from './AsyncStorageApis';
+} from '../../asyncStorage/AsyncStorageApis';
 import MyButton from './MyButton';
 
 /*
