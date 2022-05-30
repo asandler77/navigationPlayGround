@@ -2,30 +2,33 @@ import React from 'react';
 import {Alert, StyleSheet, Text, View} from 'react-native';
 import {DataType} from './types';
 import MyButton from './MyButton';
-import {FontSize} from "../../ui/uiLibrary";
+import {FontSize, Spacing} from '../../ui/uiLibrary';
 
 interface Props {
   data: DataType;
 }
 
-const CIRCLE_SIZE = 20
+const CIRCLE_SIZE = 20;
 
 export default ({data}: Props) => {
   const {day, noteText, key, onPressClearNote} = data;
+  // const onPressDelete = (id: string | undefined) => {
+  //   Alert.alert('Pay attention', 'The note will be deleted, are you sure???', [
+  //     {
+  //       text: 'Cancel',
+  //       onPress: () => console.log('Cancel Pressed'),
+  //       style: 'cancel',
+  //     },
+  //     {text: 'OK', onPress: () => id && onPressClearNote?.(id)},
+  //   ]);
+  // };
   const onPressDelete = (id: string | undefined) => {
-    Alert.alert('Pay attention', 'The note will be deleted, are you sure???', [
-      {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      {text: 'OK', onPress: () => id && onPressClearNote?.(id)},
-    ]);
+    id && onPressClearNote?.(id);
   };
   return (
     <View style={styles.container}>
       <View style={{flexDirection: 'row'}}>
-        <Text style={{marginRight:10}}>{day}</Text>
+        <Text style={{marginRight: 10}}>{day}</Text>
         <Text>{noteText}</Text>
       </View>
       <MyButton
@@ -46,11 +49,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#fff8dc',
     width: 300,
-    padding: 5,
+    padding: 10,
   },
   button: {
     backgroundColor: 'red',
-    marginHorizontal: 15,
+    marginHorizontal: Spacing.S,
     height: CIRCLE_SIZE,
     width: CIRCLE_SIZE,
     borderRadius: CIRCLE_SIZE,
