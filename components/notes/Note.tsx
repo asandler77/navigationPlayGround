@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {DataType} from './types';
 import MyButton from './MyButton';
 import {FontSize, Spacing} from '../../ui/uiLibrary';

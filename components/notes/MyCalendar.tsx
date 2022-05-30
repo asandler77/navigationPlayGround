@@ -50,8 +50,6 @@ const MyCalendar = ({
     new Date(INITIAL_DATE).getUTCMonth() + 1,
   );
 
-  console.log('inside Calendar');
-
   const [day, setDay] = useState<DayProps>({
     dateString: INITIAL_DATE,
     month: 6, // to open default month as june when api integration is done it will be dynamic

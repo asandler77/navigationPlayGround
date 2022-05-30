@@ -40,5 +40,4 @@ export const removeValue = async (key: string) => {
   } catch (e) {
     // remove error
   }
-  console.log('Value is removed');
 };
