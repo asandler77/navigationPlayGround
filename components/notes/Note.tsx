@@ -21,10 +21,12 @@ export default ({data}: Props) => {
   };
   return (
     <View style={styles.container}>
-      <Text>{day}</Text>
-      <Text>{noteText}</Text>
+      <View style={{flexDirection: 'row'}}>
+        <Text style={{marginRight:10}}>{day}</Text>
+        <Text>{noteText}</Text>
+      </View>
       <MyButton
-        text={'Delete Note'}
+        text={'x'}
         customTextStyle={styles.text}
         customButtonStyle={styles.button}
         onPress={() => onPressDelete(key)}
@@ -35,17 +37,20 @@ export default ({data}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     margin: 10,
     borderWidth: 1,
     borderRadius: 10,
     backgroundColor: '#fff8dc',
-    width: 150,
+    width: 250,
     padding: 5,
   },
   button: {
     justifyContent: 'center',
-    backgroundColor: '#f08080',
+    backgroundColor: 'red',
     borderRadius: 10,
+    marginHorizontal: 15,
   },
 
   text: {

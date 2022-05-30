@@ -11,7 +11,7 @@ export default ({data}: Props) => {
   return (
     <FlatList
       data={data}
-      numColumns={2}
+      // numColumns={2}
       renderItem={({item}) => {
         return (
           <View>

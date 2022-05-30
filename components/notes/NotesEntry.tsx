@@ -8,7 +8,7 @@ import CreateNote from './CreateNote';
 const Stack = createStackNavigator();
 const NotesEntry = () => {
     return (
-            <Stack.Navigator>
+            <Stack.Navigator screenOptions={{headerShown: false}}>
                 <Stack.Screen name="Notes" component={Notes} />
                 <Stack.Screen name="CreateNote" component={CreateNote} />
             </Stack.Navigator>

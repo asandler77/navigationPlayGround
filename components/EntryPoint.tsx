@@ -4,21 +4,23 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen';
 import NotesEntry from './notes/NotesEntry';
 import ProfileSettings from './ProfileSettings';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Stack = createNativeStackNavigator();
+
+const Tab = createBottomTabNavigator();
 
 const EntryPoint = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen
+      <Tab.Navigator >
+        <Tab.Screen
           name="Home"
           component={HomeScreen}
           options={{title: 'HomeScreen title'}}
         />
-        <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
-        <Stack.Screen name="NoteApplication" component={NotesEntry} />
-      </Stack.Navigator>
+        <Tab.Screen name="ProfileSettings" component={ProfileSettings} />
+        <Tab.Screen name="NoteApplication" component={NotesEntry} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
