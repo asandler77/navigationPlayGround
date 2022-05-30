@@ -6,7 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import CreateNote from './CreateNote';
 
 const Stack = createStackNavigator();
-const NoteApplication = () => {
+const NoteEntry = () => {
     return (
             <Stack.Navigator>
                 <Stack.Screen name="Notes" component={Notes} />
@@ -17,4 +17,4 @@ const NoteApplication = () => {
 };
 
 
-export default NoteApplication;
+export default NoteEntry;

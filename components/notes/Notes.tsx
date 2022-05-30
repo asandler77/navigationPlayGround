@@ -30,7 +30,6 @@ export default ({navigation, route}: any) => {
   }, []);
 
   useEffect(() => {
-    console.log('useeffect')
     createData(route.params?.data);
     getDataFromAsync();
   }, [route.params?.data]);
@@ -38,7 +37,6 @@ export default ({navigation, route}: any) => {
   const storeDataOnAsync = (value: any) => {
     try {
       const jsonValue = JSON.stringify(value);
-      console.log('storeDataOnAsync..', value)
       storeData(counter, jsonValue);
       setCounter(getCurrentTimeStamp);
     } catch (e) {
@@ -76,7 +74,6 @@ export default ({navigation, route}: any) => {
   };
 
   const createData = (note: any) => {
-    console.log('createData on async')
     if (!note) return;
     let dataObject: DataType = {};
 
