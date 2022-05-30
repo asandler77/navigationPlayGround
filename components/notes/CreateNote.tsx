@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import MyCalendar from './MyCalendar';
+import MyCalendar, {INITIAL_DATE} from './MyCalendar';
+import {INITIAL_PAGE} from "react-native-calendars/src/timeline-list/useTimelinePages";
 
 export default ({navigation}: any) => {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -50,12 +51,7 @@ export default ({navigation}: any) => {
         <Text style={[styles.text, styles.title]}>Create Note</Text>
       </View>
       <TextInput
-        style={{
-          margin: 10,
-          borderRadius: 10,
-          borderWidth: 1,
-          borderColor: 'grey',
-        }}
+        style={styles.textInput}
         autoFocus={true}
         multiline
         value={input}
@@ -63,16 +59,12 @@ export default ({navigation}: any) => {
         onChangeText={onChangeText}
       />
       <TextInput
-        style={{
-          margin: 10,
-          borderRadius: 10,
-          borderWidth: 1,
-          borderColor: 'grey',
-        }}
+        style={styles.textInput}
         autoFocus={true}
         multiline
         value={date}
         placeholder={'Click here to choose the date on Calendar...'}
+        defaultValue={INITIAL_DATE}
         onPressIn={openCalendar}
       />
       <TouchableOpacity style={styles.button} onPress={goToNotes}>
@@ -102,4 +94,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 40,
   },
+    textInput:{
+        margin: 10,
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: 'grey',
+    }
 });
