@@ -6,15 +6,14 @@ import {createStackNavigator} from '@react-navigation/stack';
 import CreateNote from './CreateNote';
 
 const Stack = createStackNavigator();
-const NoteEntry = () => {
+const NotesEntry = () => {
     return (
             <Stack.Navigator>
                 <Stack.Screen name="Notes" component={Notes} />
                 <Stack.Screen name="CreateNote" component={CreateNote} />
-                {/*<Stack.Screen name="Calendar" component={MyCalendar} />*/}
             </Stack.Navigator>
     );
 };
 
 
-export default NoteEntry;
+export default NotesEntry;

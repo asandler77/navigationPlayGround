@@ -2,7 +2,7 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen';
-import NoteEntry from './notes/NoteEntry';
+import NotesEntry from './notes/NotesEntry';
 import ProfileSettings from './ProfileSettings';
 
 const Stack = createNativeStackNavigator();
@@ -17,7 +17,7 @@ const EntryPoint = () => {
           options={{title: 'HomeScreen title'}}
         />
         <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
-        <Stack.Screen name="NoteApplication" component={NoteEntry} />
+        <Stack.Screen name="NoteApplication" component={NotesEntry} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -25,7 +25,7 @@ LocaleConfig.locales[LocaleConfig.defaultLocale].dayNamesShort = [
 ];
 
 // for testing purpose as api is not ready yet
-const INITIAL_DATE = '2021-06-15';
+const INITIAL_DATE = new Date().toISOString().split('T')[0];
 
 interface DayProps {
   dateString: string;
