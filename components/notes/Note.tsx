@@ -2,10 +2,13 @@ import React from 'react';
 import {Alert, StyleSheet, Text, View} from 'react-native';
 import {DataType} from './types';
 import MyButton from './MyButton';
+import {FontSize} from "../../ui/uiLibrary";
 
 interface Props {
   data: DataType;
 }
+
+const CIRCLE_SIZE = 20
 
 export default ({data}: Props) => {
   const {day, noteText, key, onPressClearNote} = data;
@@ -39,22 +42,26 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin: 10,
     borderWidth: 1,
     borderRadius: 10,
     backgroundColor: '#fff8dc',
-    width: 250,
+    width: 300,
     padding: 5,
   },
   button: {
-    justifyContent: 'center',
     backgroundColor: 'red',
-    borderRadius: 10,
     marginHorizontal: 15,
+    height: CIRCLE_SIZE,
+    width: CIRCLE_SIZE,
+    borderRadius: CIRCLE_SIZE,
+    borderColor: 'black',
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   text: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: FontSize.M,
   },
 });

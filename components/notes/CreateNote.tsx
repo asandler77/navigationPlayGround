@@ -64,7 +64,6 @@ export default ({navigation}: any) => {
         multiline
         value={date}
         placeholder={'Click here to choose the date on Calendar...'}
-        defaultValue={INITIAL_DATE}
         onPressIn={openCalendar}
       />
       <TouchableOpacity style={styles.button} onPress={goToNotes}>
