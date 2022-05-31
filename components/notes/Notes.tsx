@@ -21,11 +21,11 @@ but it might be replaced by better solution.
 
 export default ({navigation, route}: any) => {
   const [data, setData] = useState<DataType[] | null>(null);
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState('');
 
   useEffect(() => {
     getDataFromAsync();
-    setCounter(getCurrentTimeStamp);
+    setCounter(getCurrentTimeStamp.toString());
     return () => {};
   }, []);
 
@@ -38,7 +38,7 @@ export default ({navigation, route}: any) => {
     try {
       const jsonValue = JSON.stringify(value);
       storeData(counter, jsonValue);
-      setCounter(getCurrentTimeStamp);
+      setCounter(getCurrentTimeStamp.toString());
     } catch (e) {
       console.log('error', e);
     }

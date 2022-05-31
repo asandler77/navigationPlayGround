@@ -8,9 +8,9 @@ export const getAllKeys = async (): Promise<string[] | undefined> => {
   }
 };
 
-export const storeData = async (counter: number, value: any) => {
+export const storeData = async (index: string, value: any) => {
   try {
-    await AsyncStorage.setItem(`@-${counter}`, value);
+    await AsyncStorage.setItem(`@-${index}`, value);
   } catch (e) {
     console.log('error', e);
   }
@@ -41,3 +41,15 @@ export const removeValue = async (key: string) => {
     // remove error
   }
 };
+
+
+export const getValue = async (key: string) => {
+  try {
+    return await AsyncStorage.getItem(key)
+  } catch(e) {
+    // read error
+  }
+
+  console.log('Done.')
+
+}
