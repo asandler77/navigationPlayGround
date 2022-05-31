@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const getAllKeys = async (): Promise<string[] | undefined> => {
   try {
+    console.log('getAllKeys')
     return await AsyncStorage.getAllKeys();
   } catch (e) {
     console.log('error', e);
@@ -17,6 +18,7 @@ export const storeData = async (index: string, value: any) => {
 };
 
 export const getMultiple = async (keys: string[]) => {
+  console.log('getMultiple');
   try {
     return await AsyncStorage.multiGet(keys);
   } catch (e) {

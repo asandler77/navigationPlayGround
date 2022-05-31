@@ -4,6 +4,7 @@ import Carousel from './Carousel';
 import {DataType} from './types';
 import {getCurrentTimeStamp} from './helpers';
 import {
+  clearAll,
   getAllKeys,
   getMultiple,
   removeValue,
@@ -25,7 +26,7 @@ export default ({navigation, route}: any) => {
 
   useEffect(() => {
     getDataFromAsync();
-    setCounter(getCurrentTimeStamp.toString());
+    setCounter(getCurrentTimeStamp);
     return () => {};
   }, []);
 
@@ -38,14 +39,15 @@ export default ({navigation, route}: any) => {
     try {
       const jsonValue = JSON.stringify(value);
       storeData(counter, jsonValue);
-      setCounter(getCurrentTimeStamp.toString());
+      setCounter(getCurrentTimeStamp);
     } catch (e) {
-      console.log('error', e);
+      console.log('error storeDataOnAsync', e);
     }
   };
 
   const saveData = (values: [string, string | null][]) => {
     let dataArray: DataType[] = [];
+    console.log('saveData values', values);
     values.forEach(value => {
       if (value[1]) {
         const key = value[0];
@@ -54,10 +56,12 @@ export default ({navigation, route}: any) => {
         dataArray?.push({...dayNdata, key, onPressClearNote});
       }
     });
+    console.log('dataArray...', dataArray);
     setData(dataArray);
   };
 
   const getDataFromAsync = async () => {
+    console.log('1');
     return new Promise((resolve, reject) => {
       getAllKeys()
         .then(keys => {
@@ -90,6 +94,11 @@ export default ({navigation, route}: any) => {
     navigation.navigate('CreateNote');
   };
 
+  const deleteAll = () => {
+    clearAll();
+    getDataFromAsync();
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <MyButton
@@ -97,6 +106,12 @@ export default ({navigation, route}: any) => {
         customTextStyle={styles.text}
         customButtonStyle={styles.button}
         onPress={addNote}
+      />
+      <MyButton
+        text={'Delete all'}
+        customTextStyle={styles.text}
+        customButtonStyle={styles.button}
+        onPress={deleteAll}
       />
       <Carousel data={data} />
     </SafeAreaView>

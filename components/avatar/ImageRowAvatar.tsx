@@ -10,7 +10,12 @@ import {
 
 import {images} from '../../assets';
 
-export const ImagePickerAvatar = ({uri, onPress}) => {
+interface Props {
+  uri?: string | null;
+  onPress: () => void;
+}
+
+export const ImagePickerAvatar = ({uri, onPress} : Props) => {
   return (
     <ImageBackground
       style={styles.imageBackground}

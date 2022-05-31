@@ -1,3 +1,3 @@
-export const getCurrentTimeStamp = () => {
-  return Date.now().valueOf();
+export const getCurrentTimeStamp = (): string => {
+  return Date.now().toString();
 };

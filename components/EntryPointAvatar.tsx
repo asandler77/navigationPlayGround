@@ -17,9 +17,15 @@ export default function EntryPointAvatar() {
   const [visible, setVisible] = useState(false);
   const [pictureUri, setPictureUri] = useState<string | null | undefined>('');
 
+  const uri = pickerResponse?.assets && pickerResponse.assets[0].uri;
+
   useEffect(() => {
     getPictureFromAsyncStorage();
   }, []);
+
+  useEffect(() => {
+    !!uri && getPictureFromAsyncStorage();
+  }, [uri]);
 
   const onImageLibraryPress = useCallback(() => {
     const options = {
@@ -46,7 +52,7 @@ export default function EntryPointAvatar() {
     setPictureUri(avatarUri);
   };
 
-  const uri = pickerResponse?.assets && pickerResponse.assets[0].uri;
+  // const uri = pickerResponse?.assets && pickerResponse.assets[0].uri;
   if (uri) {
     saveUriInAsyncStorage(uri);
   }
