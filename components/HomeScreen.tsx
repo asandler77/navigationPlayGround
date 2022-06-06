@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Text, View} from 'react-native';
+import ProfileSettings from './ProfileSettings';
 
 // @ts-ignore
 function HomeScreen({navigation, route}) {
@@ -20,7 +21,7 @@ function HomeScreen({navigation, route}) {
   return (
     <View style={[{flex: 1, alignItems: 'center', justifyContent: 'center'}]}>
       <Text>HomeScreen</Text>
-      <Button title={'Go to notes'} onPress={onPressGoToNotes} />
+      <Button title={'Go to notes1'} onPress={onPressGoToNotes} />
       <Button
         title={'Go to profile settings'}
         onPress={onPressGoToProfileSettings}
