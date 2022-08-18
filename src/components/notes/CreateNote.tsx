@@ -6,7 +6,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import MyCalendar from "../MyCalendar";
+import MyCalendar from '../MyCalendar';
+import {COLORS} from '../../constants/Colors';
+import {FontSize, LineHeight, Spacing} from '../../constants/UiSize';
 
 export default ({navigation}: any) => {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -79,23 +81,26 @@ const styles = StyleSheet.create({
   },
   button: {
     justifyContent: 'center',
-    backgroundColor: '#ffd700',
-    margin: 5,
-    borderRadius: 10,
+    backgroundColor: COLORS.LIGHT_GREEN,
+    margin: Spacing.M,
+    borderRadius: 20,
     height: 50,
   },
   text: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: FontSize['2XL'],
     fontWeight: 'bold',
   },
   title: {
     fontSize: 40,
   },
   textInput: {
-    margin: 10,
-    borderRadius: 10,
+    margin: Spacing.M,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: 'grey',
+    fontSize: FontSize.M,
+    lineHeight: LineHeight.M,
+    paddingHorizontal: Spacing.S,
   },
 });
