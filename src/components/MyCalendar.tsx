@@ -8,7 +8,7 @@ import {
   FontWeight,
   Opacity,
   Spacing,
-} from '../../src/ui/uiLibrary';
+} from '../../src/constants/UiSize';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 import {rightArrowIcon} from "../assets/rightArrow";
 import {leftArrowIcon} from "../assets/leftArrow";

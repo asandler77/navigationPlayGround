@@ -9,8 +9,10 @@ import {
   removeValue,
   storeData,
 } from '../../asyncStorage/AsyncStorageApis';
-import MyButton from "../MyButton";
-import Carousel from "../Carousel";
+import MyButton from '../MyButton';
+import Carousel from '../Carousel';
+import {COLORS} from '../../constants/Colors';
+import {FontSize, LineHeight, Spacing} from '../../constants/UiSize';
 
 /*
 
@@ -123,18 +125,16 @@ const styles = StyleSheet.create({
   },
   button: {
     justifyContent: 'center',
-    backgroundColor: '#ffd700',
-    margin: 15,
-    borderRadius: 10,
+    backgroundColor: COLORS.LIGHT_GREEN,
+    margin: Spacing.M,
+    lineHeight: LineHeight.M,
+    borderRadius: 20,
     width: 250,
     height: 50,
   },
   text: {
     textAlign: 'center',
-    fontSize: 30,
+    fontSize: FontSize['2XL'],
     fontWeight: 'bold',
-  },
-  title: {
-    fontSize: 40,
   },
 });
