@@ -7,7 +7,6 @@ export const authenticateUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get<AuthData>('http://localhost:3000/authData');
-      console.log('response',response.data)
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(

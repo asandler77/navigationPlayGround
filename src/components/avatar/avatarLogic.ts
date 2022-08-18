@@ -1,13 +1,11 @@
 import {getAllKeys, storeData} from '../../asyncStorage/AsyncStorageApis';
 
 export const saveUriInAsyncStorage = (uri: string) => {
-  console.log('uri', uri);
   storeData('ava', uri);
 };
 
 export const getAllKeysFromAsyncStorage = async () => {
   const keys = await getAllKeys();
-  console.log('keys', keys);
   return keys;
 };
 

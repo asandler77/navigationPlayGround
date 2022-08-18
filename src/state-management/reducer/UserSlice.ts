@@ -25,4 +25,3 @@ export const userAuthenticationSlice = createSlice({
   },
 });
 
-export const {userFetchingSuccess} = userAuthenticationSlice.actions;

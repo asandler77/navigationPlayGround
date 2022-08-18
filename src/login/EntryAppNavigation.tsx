@@ -27,7 +27,6 @@ const EntryAppNavigation = () => {
   }, []);
 
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
-console.log('isAuthenticatedkkk', isAuthenticated)
   return (
     <NavigationContainer>
       <RootStack.Navigator>

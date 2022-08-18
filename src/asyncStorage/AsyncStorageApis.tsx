@@ -26,8 +26,6 @@ export const getMultiple = async (keys: string[]) => {
 
 export const clearAll = async () => {
   try {
-    console.log('clearAll');
-
     await AsyncStorage.clear();
   } catch (e) {
     console.log('error', e);
@@ -49,7 +47,5 @@ export const getValue = async (key: string) => {
   } catch(e) {
     // read error
   }
-
-  console.log('Done.')
 
 }
