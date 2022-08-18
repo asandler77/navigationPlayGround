@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import Carousel from './Carousel';
 import {DataType} from './types';
 import {getCurrentTimeStamp} from './helpers';
 import {
@@ -10,7 +9,8 @@ import {
   removeValue,
   storeData,
 } from '../../asyncStorage/AsyncStorageApis';
-import MyButton from './MyButton';
+import MyButton from "../MyButton";
+import Carousel from "../Carousel";
 
 /*
 
@@ -47,7 +47,6 @@ export default ({navigation, route}: any) => {
 
   const saveData = (values: [string, string | null][]) => {
     let dataArray: DataType[] = [];
-    console.log('saveData values', values);
     values.forEach(value => {
       if (value[1]) {
         const key = value[0];
@@ -56,12 +55,10 @@ export default ({navigation, route}: any) => {
         dataArray?.push({...dayNdata, key, onPressClearNote});
       }
     });
-    console.log('dataArray...', dataArray);
     setData(dataArray);
   };
 
   const getDataFromAsync = async () => {
-    console.log('1');
     return new Promise((resolve, reject) => {
       getAllKeys()
         .then(keys => {

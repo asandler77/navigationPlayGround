@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {DataType} from './types';
-import MyButton from './MyButton';
 import {FontSize, Spacing} from '../../ui/uiLibrary';
+import MyButton from "../MyButton";
 
 interface Props {
   data: DataType;
@@ -12,16 +12,6 @@ const CIRCLE_SIZE = 20;
 
 export default ({data}: Props) => {
   const {day, noteText, key, onPressClearNote} = data;
-  // const onPressDelete = (id: string | undefined) => {
-  //   Alert.alert('Pay attention', 'The note will be deleted, are you sure???', [
-  //     {
-  //       text: 'Cancel',
-  //       onPress: () => console.log('Cancel Pressed'),
-  //       style: 'cancel',
-  //     },
-  //     {text: 'OK', onPress: () => id && onPressClearNote?.(id)},
-  //   ]);
-  // };
   const onPressDelete = (id: string | undefined) => {
     id && onPressClearNote?.(id);
   };

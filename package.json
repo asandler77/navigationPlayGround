@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "compile": "tsc -p . --pretty"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.4",
@@ -16,6 +17,7 @@
     "@react-navigation/native-stack": "^6.6.2",
     "@react-navigation/stack": "^6.2.1",
     "@reduxjs/toolkit": "^1.8.2",
+    "axios": "^0.27.2",
     "react": "17.0.2",
     "react-native": "0.68.2",
     "react-native-calendars": "^1.1284.0",

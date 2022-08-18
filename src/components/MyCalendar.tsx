@@ -8,10 +8,10 @@ import {
   FontWeight,
   Opacity,
   Spacing,
-} from '../../ui/uiLibrary';
+} from '../../src/ui/uiLibrary';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
-import {leftArrowIcon} from '../../assets/leftArrow';
-import {rightArrowIcon} from '../../assets/rightArrow';
+import {rightArrowIcon} from "../assets/rightArrow";
+import {leftArrowIcon} from "../assets/leftArrow";
 
 // to override the calendar's default day names
 LocaleConfig.locales[LocaleConfig.defaultLocale].dayNamesShort = [

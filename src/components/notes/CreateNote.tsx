@@ -6,8 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import MyCalendar, {INITIAL_DATE} from './MyCalendar';
-import {INITIAL_PAGE} from "react-native-calendars/src/timeline-list/useTimelinePages";
+import MyCalendar from "../MyCalendar";
 
 export default ({navigation}: any) => {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -93,10 +92,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 40,
   },
-    textInput:{
-        margin: 10,
-        borderRadius: 10,
-        borderWidth: 1,
-        borderColor: 'grey',
-    }
+  textInput: {
+    margin: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: 'grey',
+  },
 });
