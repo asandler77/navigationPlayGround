@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {authenticateUser} from './AuthenticationThunkAPI';
+import {isUserAuthenticated} from './AuthenticationThunkAPI';
 import {AuthData} from "../../login/types";
 
 interface UserAuthentication {
@@ -19,7 +19,7 @@ export const userAuthenticationSlice = createSlice({
     },
   },
   extraReducers: {
-    [authenticateUser.fulfilled]: (state, action: PayloadAction<AuthData>) => {
+    [isUserAuthenticated.fulfilled]: (state, action: PayloadAction<AuthData>) => {
       state.isAuthenticated = action.payload;
     },
   },

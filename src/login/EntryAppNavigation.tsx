@@ -8,13 +8,12 @@ import {
   useAppSelector,
 } from '../state-management/reducer/storeUtils';
 import {selectIsAuthenticated} from '../state-management/reducer/authSelector';
-import {authenticateUser} from '../state-management/reducer/AuthenticationThunkAPI';
+import {isUserAuthenticated} from '../state-management/reducer/AuthenticationThunkAPI';
 
 export const RootStack = createStackNavigator();
 
-
 /*
-When component is mountend there is dispatch to authenticateUser function to get isAuthenticated data from db.
+When component is mounted there is dispatch to authenticateUser function to get isAuthenticated data from db.
 The DB is json server that running on file db.json with command:
 json-server --watch db.json
  */
@@ -23,29 +22,19 @@ const EntryAppNavigation = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(authenticateUser());
+    dispatch(isUserAuthenticated());
   }, []);
 
-  const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const isAuthenticated = false;
   return (
     <NavigationContainer>
       <RootStack.Navigator>
         {isAuthenticated ? (
           <>
-            <RootStack.Group screenOptions={{headerShown: false}}>
-              <RootStack.Screen name={'EntryPoint'} component={EntryPoint} />
-            </RootStack.Group>
+            <RootStack.Screen name={'EntryPoint'} component={EntryPoint} />
           </>
         ) : (
-          <RootStack.Group
-            screenOptions={{
-              headerShown: false,
-            }}>
-            <RootStack.Screen
-              name={'AuthNavigator'}
-              component={AuthNavigator}
-            />
-          </RootStack.Group>
+          <RootStack.Screen name={'AuthNavigator'} component={AuthNavigator} />
         )}
       </RootStack.Navigator>
     </NavigationContainer>

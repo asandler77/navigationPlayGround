@@ -1,5 +1,22 @@
 {
   "authData": {
     "isAuthenticated": true
-  }
+  },
+  "users": [
+    {
+      "id": "1",
+      "name": "John",
+      "sureName": "Doe"
+    },
+    {
+      "id": "2",
+      "name": "Anna",
+      "sureName": "The first"
+    },
+    {
+      "id": "123",
+      "name": "Alexey",
+      "sureName": "Rock"
+    }
+  ]
 }
