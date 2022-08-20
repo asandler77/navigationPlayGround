@@ -8,7 +8,7 @@ interface SignUpUser {
 }
 
 const initialState: SignUpUser = {
-  userData: {user: '', password: ''},
+  userData: {email: '', password: ''},
   isSignUpSucceed: false,
 };
 export const signUpUserSlice = createSlice({

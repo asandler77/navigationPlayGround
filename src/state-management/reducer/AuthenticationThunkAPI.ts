@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {AuthData, LoginData} from '../../login/types';
+import {id, uuid} from "../../utils/helpers";
 
 export const isUserAuthenticated = createAsyncThunk(
   'auth/fetchAll',
@@ -20,17 +21,17 @@ export const isUserAuthenticated = createAsyncThunk(
 
 export const signUpUser = createAsyncThunk(
   'signUp/fetchAll',
-  async (_, thunkAPI) => {
+  async ({email, password}) => {
     try {
       const response = await axios.post<LoginData>(
         'http://localhost:3000/users',
         {
-          id: '123',
-          name: 'Alexey',
-          sureName: 'Rock',
+          id: uuid,
+          email: email,
+          password: password,
         },
       );
-      console.log('response', response);
+      console.log('idd', uuid);
       return response.status;
     } catch (e) {}
   },

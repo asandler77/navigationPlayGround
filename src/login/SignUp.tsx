@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {LoginData} from './types';
@@ -14,20 +14,27 @@ import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import {COLORS} from '../constants/Colors';
 import {FontSize, LineHeight} from '../constants/UiSize';
 
-// import {SignInObj} from '../types';
-
 export const SignUp = () => {
   const dispatch = useAppDispatch();
   const isSignUpSucceed: boolean = useAppSelector(selectIsSignUpSucceed);
 
-  const {control, handleSubmit} = useForm<LoginData>();
+  const {
+    control,
+    handleSubmit,
+    watch: startFormValuesWatch,
+  } = useForm<LoginData>();
   const [isLoading, setIsLoading] = useState(false);
   const [signUpErrMsg, setSignUpErrMsg] = useState('');
 
-  const onHandleSubmit = () => {
+  useEffect(() => {
+    startFormValuesWatch();
+  }, []);
+
+  const onHandleSubmit = (formValues: LoginData) => {
+    const {email, password} = formValues;
     setIsLoading(true);
     setTimeout(() => {
-      dispatch(signUpUser());
+      dispatch(signUpUser({email, password}));
       setIsLoading(false);
     }, 2000);
   };
