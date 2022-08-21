@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {LoginData} from './types';
@@ -13,29 +13,25 @@ import {signUpUser} from '../state-management/reducer/AuthenticationThunkAPI';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import {COLORS} from '../constants/Colors';
 import {FontSize, LineHeight} from '../constants/UiSize';
+import {getDefaultValues} from '../utils/helpers';
 
-export const SignUp = () => {
+export const SignUp = ({navigation}) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [signUpErrMsg, setSignUpErrMsg] = useState('');
   const dispatch = useAppDispatch();
   const isSignUpSucceed: boolean = useAppSelector(selectIsSignUpSucceed);
 
-  const {
-    control,
-    handleSubmit,
-    watch: startFormValuesWatch,
-  } = useForm<LoginData>();
-  const [isLoading, setIsLoading] = useState(false);
-  const [signUpErrMsg, setSignUpErrMsg] = useState('');
-
-  useEffect(() => {
-    startFormValuesWatch();
-  }, []);
+  const {control, handleSubmit} = useForm<LoginData>({
+    defaultValues: getDefaultValues(),
+  });
 
   const onHandleSubmit = (formValues: LoginData) => {
     const {email, password} = formValues;
     setIsLoading(true);
+    dispatch(signUpUser({email, password}));
     setTimeout(() => {
-      dispatch(signUpUser({email, password}));
       setIsLoading(false);
+      navigation.navigate('SignIn');
     }, 2000);
   };
 
