@@ -3,12 +3,18 @@ import {createStackNavigator} from '@react-navigation/stack';
 import SignIn from './SignIn';
 import ForgotPass from './ForgotPass';
 import {SignUp} from './SignUp';
+import {MainLoginPage} from "./MainLoginPage";
 
 export const AuthStack = createStackNavigator();
 
 export const AuthNavigator = () => {
   return (
     <AuthStack.Navigator>
+      <AuthStack.Screen
+        screenOptions={{headerShown: false}}
+        name={'MainLogin'}
+        component={MainLoginPage}
+      />
       <AuthStack.Screen
         screenOptions={{headerShown: false}}
         name={'SignUp'}

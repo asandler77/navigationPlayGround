@@ -10,10 +10,10 @@ import {
 } from '../state-management/reducer/storeUtils';
 import {selectIsSignUpSucceed} from '../state-management/reducer/authSelector';
 import {signUpUser} from '../state-management/reducer/AuthenticationThunkAPI';
-import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import {COLORS} from '../constants/Colors';
-import {FontSize, LineHeight} from '../constants/UiSize';
+import {FontSize, LineHeight, Spacing} from '../constants/UiSize';
 import {getDefaultValues} from '../utils/helpers';
+import {SCREEN_WIDTH} from '../constants/Constants';
 
 export const SignUp = ({navigation}) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +31,7 @@ export const SignUp = ({navigation}) => {
     dispatch(signUpUser({email, password}));
     setTimeout(() => {
       setIsLoading(false);
-      navigation.navigate('SignIn');
+      navigation.goBack();
     }, 2000);
   };
 
@@ -41,41 +41,37 @@ export const SignUp = ({navigation}) => {
       <FormInput
         name="email"
         control={control}
-        placeholder="email"
-        title="EMAIL"
+        placeholder="Email"
         customInputStyle={styleSheet.input}
-        customTitleStyle={styleSheet.inputTitle}
+        // customTitleStyle={styleSheet.inputTitle}
+        customPlaceHolderStyle={COLORS.WHITE}
         rules={{required: `Email is not valid`}}
       />
       <FormInput
         name="password"
         control={control}
-        placeholder="password"
-        title="PASSWORD"
+        placeholder="Password"
         customInputStyle={styleSheet.input}
-        customTitleStyle={styleSheet.inputTitle}
+        // customTitleStyle={styleSheet.inputTitle}
         rules={{required: `Password is not valid`}}
+        customPlaceHolderStyle={COLORS.WHITE}
       />
       <Button
+        customBtnContainerStyle={styleSheet.button}
         errMsg={signUpErrMsg}
         isLoading={isLoading}
         onPress={handleSubmit(onHandleSubmit)}
         btnLabel="Save"
       />
-      {isSignUpSucceed &&
-        Toast.show({
-          type: 'success',
-          visibilityTime: 4000,
-          position: 'bottom',
-          text1: 'SignUp succeed',
-        })}
     </View>
   );
 };
 
 const styleSheet = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.LIGHT_GREY,
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: COLORS.LIGHT_BLUE,
   },
 
   title: {
@@ -85,14 +81,28 @@ const styleSheet = StyleSheet.create({
     marginVertical: LineHeight.XL,
   },
   input: {
-    fontSize: FontSize.L,
+    borderColor: COLORS.WHITE,
+    borderWidth: 1,
+    borderRadius: 24,
+    marginVertical: Spacing.S,
+    width: SCREEN_WIDTH * 0.8,
+    textAlign: 'center',
     lineHeight: LineHeight.L,
-    backgroundColor: COLORS.INPUT_GREY,
-    marginBottom: LineHeight.XL,
+    fontSize: FontSize.L,
   },
   inputTitle: {
     fontSize: FontSize.XL,
     lineHeight: LineHeight.XL,
     marginBottom: LineHeight.S,
+  },
+  button: {
+    width: '90%',
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: COLORS.WHITE,
+    marginTop: Spacing['3XL'],
+    lineHeight: LineHeight.L,
+    fontSize: FontSize.L,
+    backgroundColor: COLORS.LIGHT_BLUE,
   },
 });

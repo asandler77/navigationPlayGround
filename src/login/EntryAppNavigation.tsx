@@ -28,7 +28,7 @@ const EntryAppNavigation = () => {
   const isAuthenticated = false;
   return (
     <NavigationContainer>
-      <RootStack.Navigator>
+      <RootStack.Navigator screenOptions={{ headerShown: false }}>
         {isAuthenticated ? (
           <>
             <RootStack.Screen name={'EntryPoint'} component={EntryPoint} />

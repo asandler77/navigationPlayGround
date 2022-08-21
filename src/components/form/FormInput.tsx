@@ -1,6 +1,7 @@
 import React, {ReactElement} from 'react';
 import {StyleSheet, Text, TextInput, TextStyle} from 'react-native';
 import {Control, Controller} from 'react-hook-form';
+import {COLORS} from '../../constants/Colors';
 
 interface Props {
   name: string;
@@ -13,6 +14,7 @@ interface Props {
   customTitleStyle?: TextStyle;
   customInputStyle?: TextStyle;
   customErrorStyle?: TextStyle;
+  customPlaceHolderStyle?: TextStyle;
 }
 
 export const FormInput = (props: Props): ReactElement => {
@@ -24,7 +26,7 @@ export const FormInput = (props: Props): ReactElement => {
     title,
     secureTextEntry = false,
   } = props;
-  const {customTitleStyle, customInputStyle, customErrorStyle} = props;
+  const {customTitleStyle, customInputStyle, customErrorStyle, customPlaceHolderStyle} = props;
 
   return (
     <Controller
@@ -40,6 +42,7 @@ export const FormInput = (props: Props): ReactElement => {
             </Text>
           )}
           <TextInput
+            placeholderTextColor={customPlaceHolderStyle || 'lightgray'}
             value={value}
             onBlur={onBlur}
             onChangeText={onChange}
