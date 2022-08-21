@@ -14,7 +14,7 @@ interface Props {
   customTitleStyle?: TextStyle;
   customInputStyle?: TextStyle;
   customErrorStyle?: TextStyle;
-  customPlaceHolderStyle?: TextStyle;
+  customPlaceHolderStyle?: string;
 }
 
 export const FormInput = (props: Props): ReactElement => {

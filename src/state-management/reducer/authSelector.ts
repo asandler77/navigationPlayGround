@@ -5,3 +5,6 @@ export const selectIsAuthenticated = (state: RootState): boolean =>
 
 export const selectIsSignUpSucceed = (state: RootState): boolean =>
   state.signUp.isSignUpSucceed;
+
+export const selectIsSignInSucceed = (state: RootState): boolean =>
+  state.signIn.isSignInSucceed;

@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {isUserAuthenticated} from './AuthenticationThunkAPI';
-import {AuthData} from "../../login/types";
+import {AuthData} from '../../login/types';
 
 interface UserAuthentication {
   isAuthenticated: boolean;
@@ -13,15 +13,14 @@ const initialState: UserAuthentication = {
 export const userAuthenticationSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    userFetchingSuccess(state, action: PayloadAction<AuthData>) {
-      state.isAuthenticated = action.payload.isAuthenticated;
-    },
-  },
+  reducers: {},
   extraReducers: {
-    [isUserAuthenticated.fulfilled]: (state, action: PayloadAction<AuthData>) => {
+    [isUserAuthenticated.fulfilled]: (
+      state,
+      action: PayloadAction<boolean>,
+    ) => {
+      console.log('payload',action.payload)
       state.isAuthenticated = action.payload;
     },
   },
 });
-

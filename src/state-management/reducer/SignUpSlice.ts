@@ -14,11 +14,7 @@ const initialState: SignUpUser = {
 export const signUpUserSlice = createSlice({
   name: 'signUp',
   initialState,
-  reducers: {
-    signUpSuccess(state, action: PayloadAction<LoginData>) {
-      state.userData = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: {
     [signUpUser.fulfilled]: (state, action: PayloadAction<LoginData>) => {
       state.isSignUpSucceed = action.payload;

@@ -7,7 +7,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '../state-management/reducer/storeUtils';
-import {selectIsAuthenticated} from '../state-management/reducer/authSelector';
+import {selectIsAuthenticated, selectIsSignUpSucceed} from '../state-management/reducer/authSelector';
 import {isUserAuthenticated} from '../state-management/reducer/AuthenticationThunkAPI';
 
 export const RootStack = createStackNavigator();
@@ -25,7 +25,7 @@ const EntryAppNavigation = () => {
     dispatch(isUserAuthenticated());
   }, []);
 
-  const isAuthenticated = false;
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);;
   return (
     <NavigationContainer>
       <RootStack.Navigator screenOptions={{ headerShown: false }}>
